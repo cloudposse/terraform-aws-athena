@@ -1,7 +1,7 @@
 locals {
   enabled = module.this.enabled
 
-  s3_bucket_id = var.create_s3_bucket ? aws_s3_bucket.default[0].id : var.athena_s3_bucket_id
+  s3_bucket_id = var.create_s3_bucket ? try(aws_s3_bucket.default[0].id, null) : var.athena_s3_bucket_id
 }
 
 resource "aws_s3_bucket" "default" {
