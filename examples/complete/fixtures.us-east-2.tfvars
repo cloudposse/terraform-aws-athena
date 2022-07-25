@@ -8,7 +8,7 @@ stage = "test"
 
 name = "example"
 
-database = [
+databases = [
   "database1",
   "database2"
 ]
