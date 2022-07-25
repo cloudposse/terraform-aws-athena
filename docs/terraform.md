@@ -10,7 +10,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
 
 ## Modules
 
@@ -67,7 +67,7 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_database_id"></a> [database\_id](#output\_database\_id) | ID of newly created Athena database. |
+| <a name="output_databases"></a> [databases](#output\_databases) | List of newly created Athena databases. |
 | <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | ARN of KMS key used by Athena. |
 | <a name="output_s3_bucket_id"></a> [s3\_bucket\_id](#output\_s3\_bucket\_id) | ID of S3 bucket used by Athena. |
 | <a name="output_workgroup_id"></a> [workgroup\_id](#output\_workgroup\_id) | ID of newly created Athena workgroup. |

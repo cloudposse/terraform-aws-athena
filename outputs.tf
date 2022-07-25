@@ -13,7 +13,7 @@ output "workgroup_id" {
   value       = try(aws_athena_workgroup.default[0].id, null)
 }
 
-output "database_id" {
-  description = "ID of newly created Athena database."
+output "databases" {
+  description = "List of newly created Athena databases."
   value       = aws_athena_database.default
 }

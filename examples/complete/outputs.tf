@@ -13,7 +13,7 @@ output "athena_workgroup_id" {
   value       = module.example.workgroup_id
 }
 
-output "athena_database_id" {
-  description = "ID of newly created Athena database."
-  value       = module.example.database_id
+output "athena_databases" {
+  description = "List of newly created Athena databases."
+  value       = module.example.databases
 }
