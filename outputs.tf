@@ -15,5 +15,5 @@ output "workgroup_id" {
 
 output "database_id" {
   description = "ID of newly created Athena database."
-  value       = try(aws_athena_database.default[0].id, null)
+  value       = aws_athena_database.default
 }

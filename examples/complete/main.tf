@@ -1,7 +1,7 @@
 module "example" {
   source = "../.."
 
-  database_name = var.database_name
+  databases = var.databases
 
   context = module.this.context
 }

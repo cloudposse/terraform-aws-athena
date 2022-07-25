@@ -43,8 +43,8 @@ resource "aws_athena_workgroup" "default" {
 }
 
 resource "aws_athena_database" "default" {
-  count = local.enabled ? 1 : 0
+  for_each = local.enabled ? toset(var.databases) : []
 
-  name   = var.database_name
+  name   = each.value
   bucket = local.s3_bucket_id
 }

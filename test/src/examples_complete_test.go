@@ -36,7 +36,6 @@ func TestExamplesComplete(t *testing.T) {
     VarFiles: varFiles,
     Vars: map[string]interface{}{
       "attributes": attributes,
-      "database_name": randID,
     },
   }
 
@@ -49,13 +48,11 @@ func TestExamplesComplete(t *testing.T) {
   // Run `terraform output` to get the value of an output variable
   s3BucketId := terraform.Output(t, terraformOptions, "athena_s3_bucket_id")
   workgroupId := terraform.Output(t, terraformOptions, "athena_workgroup_id")
-  databaseId := terraform.Output(t, terraformOptions, "athena_database_id")
 
   // Verify we're getting back the outputs we expect
   // Ensure we get the attribute included in the ID
   assert.Equal(t, "eg-ue2-test-example-"+randID, s3BucketId)
   assert.Equal(t, "eg-ue2-test-example-"+randID, workgroupId)
-  assert.Equal(t, randID, databaseId)
 }
 
 func TestExamplesCompleteDisabled(t *testing.T) {
@@ -77,7 +74,6 @@ func TestExamplesCompleteDisabled(t *testing.T) {
     VarFiles: varFiles,
     Vars: map[string]interface{}{
       "attributes": attributes,
-      "database_name": randID,
       "enabled":    "false",
     },
   }

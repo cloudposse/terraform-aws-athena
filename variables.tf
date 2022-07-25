@@ -70,7 +70,7 @@ variable "workgroup_state" {
   default     = "ENABLED"
 }
 
-variable "database_name" {
-  description = "Name of Athena database."
-  type        = string
+variable "databases" {
+  description = "List of Athena databases to provision within this workgroup."
+  type        = list(string)
 }
