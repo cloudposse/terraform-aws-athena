@@ -8,9 +8,9 @@ output "athena_kms_key_arn" {
   value       = module.example.kms_key_arn
 }
 
-output "athena_workgroup_arn" {
-  description = "ARN of newly created Athena workgroup."
-  value       = module.example.workgroup_arn
+output "athena_workgroup_id" {
+  description = "ID of newly created Athena workgroup."
+  value       = module.example.workgroup_id
 }
 
 output "athena_database_id" {

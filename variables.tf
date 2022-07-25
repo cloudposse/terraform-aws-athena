@@ -69,3 +69,8 @@ variable "workgroup_state" {
   type        = string
   default     = "ENABLED"
 }
+
+variable "database_name" {
+  description = "Name of Athena database."
+  type        = string
+}

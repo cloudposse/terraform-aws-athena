@@ -45,6 +45,6 @@ resource "aws_athena_workgroup" "default" {
 resource "aws_athena_database" "default" {
   count = local.enabled ? 1 : 0
 
-  name   = replace(module.this.id, "-", "_")
+  name   = var.database_name
   bucket = local.s3_bucket_id
 }

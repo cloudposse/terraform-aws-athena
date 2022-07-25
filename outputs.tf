@@ -8,9 +8,9 @@ output "kms_key_arn" {
   value       = try(aws_kms_key.default[0].arn, null)
 }
 
-output "workgroup_arn" {
-  description = "ARN of newly created Athena workgroup."
-  value       = try(aws_athena_workgroup.default[0].arn, null)
+output "workgroup_id" {
+  description = "ID of newly created Athena workgroup."
+  value       = try(aws_athena_workgroup.default[0].id, null)
 }
 
 output "database_id" {
