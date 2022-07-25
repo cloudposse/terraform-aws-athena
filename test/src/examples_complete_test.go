@@ -77,6 +77,7 @@ func TestExamplesCompleteDisabled(t *testing.T) {
     VarFiles: varFiles,
     Vars: map[string]interface{}{
       "attributes": attributes,
+      "database_name": randID,
       "enabled":    "false",
     },
   }
