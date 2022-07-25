@@ -203,10 +203,10 @@ Available targets:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_database_id"></a> [database\_id](#output\_database\_id) | n/a |
-| <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | n/a |
-| <a name="output_s3_bucket_id"></a> [s3\_bucket\_id](#output\_s3\_bucket\_id) | n/a |
-| <a name="output_workgroup_arn"></a> [workgroup\_arn](#output\_workgroup\_arn) | n/a |
+| <a name="output_database_id"></a> [database\_id](#output\_database\_id) | ID of newly created Athena database. |
+| <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | ARN of KMS key used by Athena. |
+| <a name="output_s3_bucket_id"></a> [s3\_bucket\_id](#output\_s3\_bucket\_id) | ID of S3 bucket used by Athena. |
+| <a name="output_workgroup_arn"></a> [workgroup\_arn](#output\_workgroup\_arn) | ARN of newly created Athena workgroup. |
 <!-- markdownlint-restore -->
 
 
