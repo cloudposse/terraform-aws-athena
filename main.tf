@@ -7,7 +7,7 @@ locals {
 resource "aws_s3_bucket" "default" {
   count = local.enabled && var.create_s3_bucket ? 1 : 0
 
-  bucket        = module.this.id
+  bucket = module.this.id
 }
 
 resource "aws_kms_key" "default" {
