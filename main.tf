@@ -8,6 +8,9 @@ resource "aws_s3_bucket" "default" {
   count = local.enabled && var.create_s3_bucket ? 1 : 0
 
   bucket = module.this.id
+  tags   = module.this.tags
+
+  force_destroy = true
 }
 
 resource "aws_kms_key" "default" {
