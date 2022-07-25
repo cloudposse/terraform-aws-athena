@@ -1,14 +1,19 @@
-output "id" {
-  description = "ID of the created example"
-  value       = module.this.enabled ? module.this.id : null
+output "s3_bucket_id" {
+  description = ""
+  value       = aws_s3_bucket.default[0].id
 }
 
-output "example" {
-  description = "Example output"
-  value       = module.this.enabled ? local.example : null
+output "kms_key_arn" {
+  description = ""
+  value       = aws_kms_key.default[0].arn
 }
 
-output "random" {
-  description = "Stable random number for this example"
-  value       = module.this.enabled ? join("", random_integer.example[*].result) : null
+output "workgroup_arn" {
+  description = ""
+  value       = aws_athena_workgroup.default[0].arn
+}
+
+output "database_id" {
+  description = ""
+  value       = aws_athena_database.default[0].id
 }

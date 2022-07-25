@@ -1,13 +1,47 @@
-resource "random_integer" "example" {
-  count = module.this.enabled ? 1 : 0
+locals {
+  enabled = module.this.enabled
 
-  min = 1
-  max = 50000
-  keepers = {
-    example = var.example
-  }
+  s3_bucket_id = var.create_s3_bucket ? aws_s3_bucket.default[0].id : var.athena_s3_bucket_id
 }
 
-locals {
-  example = format("%v %v", var.example, join("", random_integer.example[*].result))
+resource "aws_s3_bucket" "default" {
+  count = local.enabled && var.create_s3_bucket ? 1 : 0
+
+  bucket        = module.this.id
+}
+
+resource "aws_kms_key" "default" {
+  count = local.enabled && var.create_kms_key ? 1 : 0
+
+  deletion_window_in_days = var.athena_kms_key_deletion_window
+  description             = "Athena KMS Key"
+}
+
+resource "aws_athena_workgroup" "default" {
+  count = local.enabled ? 1 : 0
+
+  name = module.this.id
+
+  configuration {
+    bytes_scanned_cutoff_per_query     = var.bytes_scanned_cutoff_per_query
+    enforce_workgroup_configuration    = var.enforce_workgroup_configuration
+    publish_cloudwatch_metrics_enabled = var.publish_cloudwatch_metrics_enabled
+
+    result_configuration {
+      encryption_configuration {
+        encryption_option = var.encryption_option
+        kms_key_arn       = aws_kms_key.default[0].arn
+      }
+      output_location = format("s3://%s/%s", local.s3_bucket_id, var.s3_output_path)
+    }
+  }
+
+  tags = module.this.tags
+}
+
+resource "aws_athena_database" "default" {
+  count = local.enabled ? 1 : 0
+
+  name   = replace(module.this.id, "-", "_")
+  bucket = local.s3_bucket_id
 }

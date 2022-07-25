@@ -7,6 +7,3 @@ environment = "ue2"
 stage = "test"
 
 name = "example"
-
-example_input = "Hello, world!"
-
