@@ -3,5 +3,13 @@ variable "region" {
 }
 
 variable "databases" {
-  type = list(string)
+  type = map(any)
+}
+
+variable "data_catalogs" {
+  type = map(any)
+}
+
+variable "named_queries" {
+  type = map(map(string))
 }

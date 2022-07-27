@@ -17,3 +17,13 @@ output "databases" {
   description = "List of newly created Athena databases."
   value       = aws_athena_database.default
 }
+
+output "data_catalogs" {
+  description = "List of newly created Athena data catalogs."
+  value       = aws_athena_data_catalog.default
+}
+
+output "named_queries" {
+  description = "List of newly created Athena named queries."
+  value       = aws_athena_named_query.default
+}
