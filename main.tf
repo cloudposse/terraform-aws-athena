@@ -69,7 +69,7 @@ resource "aws_athena_database" "default" {
 
   expected_bucket_owner = try(each.value.expected_bucket_owner, null)
   force_destroy         = try(each.value.force_destroy, false)
-  
+
 }
 
 resource "aws_athena_data_catalog" "default" {
