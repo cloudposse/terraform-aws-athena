@@ -17,7 +17,7 @@ resource "aws_kms_key" "default" {
   count = local.enabled && var.create_kms_key ? 1 : 0
 
   deletion_window_in_days = var.athena_kms_key_deletion_window
-  description             = "Athena KMS Key"
+  description             = "Athena KMS Key for ${module.this.id}"
 }
 
 resource "aws_athena_workgroup" "default" {
