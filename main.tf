@@ -18,7 +18,7 @@ resource "aws_kms_key" "default" {
 
   deletion_window_in_days = var.athena_kms_key_deletion_window
   description             = "Athena KMS Key for ${module.this.id}"
-  tags = module.this.tags
+  tags                    = module.this.tags
 }
 
 resource "aws_athena_workgroup" "default" {
