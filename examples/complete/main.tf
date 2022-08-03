@@ -1,7 +1,9 @@
 module "example" {
   source = "../.."
 
-  example = coalesce(var.example_input_override, var.example_input)
+  databases     = var.databases
+  data_catalogs = var.data_catalogs
+  named_queries = var.named_queries
 
   context = module.this.context
 }
