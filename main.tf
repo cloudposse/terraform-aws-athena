@@ -2,6 +2,7 @@ locals {
   enabled = module.this.enabled
 
   s3_bucket_id = var.create_s3_bucket ? try(aws_s3_bucket.default[0].id, null) : var.athena_s3_bucket_id
+  kms_key_arn  = var.create_kms_key ? try(aws_kms_key.default[0].arn, null) : var.athena_kms_key
 }
 
 resource "aws_s3_bucket" "default" {
@@ -34,7 +35,7 @@ resource "aws_athena_workgroup" "default" {
     result_configuration {
       encryption_configuration {
         encryption_option = var.workgroup_encryption_option
-        kms_key_arn       = aws_kms_key.default[0].arn
+        kms_key_arn       = local.kms_key_arn
       }
       output_location = format("s3://%s/%s", local.s3_bucket_id, var.s3_output_path)
     }
