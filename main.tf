@@ -95,6 +95,6 @@ resource "aws_athena_named_query" "default" {
   name        = "${module.this.id}-${each.key}"
   workgroup   = aws_athena_workgroup.default[0].id
   database    = aws_athena_database.default[each.value.database].name
-  query       = format(each.value.query, each.value.database)
+  query       = each.value.query
   description = each.value.description
 }
