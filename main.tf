@@ -3,6 +3,7 @@ locals {
 
   s3_bucket_id = var.create_s3_bucket ? try(aws_s3_bucket.default[0].id, null) : var.athena_s3_bucket_id
   kms_key_arn  = var.create_kms_key ? try(aws_kms_key.default[0].arn, null) : var.athena_kms_key
+    
 }
 
 resource "aws_s3_bucket" "default" {
