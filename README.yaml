@@ -24,7 +24,7 @@ copyrights:
     year: "2021"
 
 # Canonical GitHub repo
-github_repo:
+github_repo: cloudposse/terraform-aws-athena
 
 # Badges to display
 badges:
@@ -84,6 +84,4 @@ include:
   - "docs/terraform.md"
 
 # Contributors to this project
-contributors:
-  - name: "Dan Meyers"
-    github: "danjbh"
+contributors: []
