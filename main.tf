@@ -31,6 +31,7 @@ resource "aws_athena_workgroup" "default" {
     bytes_scanned_cutoff_per_query     = var.bytes_scanned_cutoff_per_query
     enforce_workgroup_configuration    = var.enforce_workgroup_configuration
     publish_cloudwatch_metrics_enabled = var.publish_cloudwatch_metrics_enabled
+    requester_pays_enabled = var.requester_pays_enabled
 
     result_configuration {
       encryption_configuration {
