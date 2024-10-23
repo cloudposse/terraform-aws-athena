@@ -1,15 +1,19 @@
 variable "region" {
-  type = string
+  description = "The AWS region."
+  type        = string
 }
 
 variable "databases" {
-  type = map(any)
+  description = "Map of Athena databases and related configuration."
+  type        = map(any)
 }
 
 variable "data_catalogs" {
-  type = map(any)
+  description = "Map of Athena data catalogs and related configuration."
+  type        = map(any)
 }
 
 variable "named_queries" {
-  type = map(map(string))
+  description = "Map of Athena named queries and related configuration."
+  type        = map(map(string))
 }
