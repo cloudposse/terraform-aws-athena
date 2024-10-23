@@ -52,6 +52,12 @@ variable "publish_cloudwatch_metrics_enabled" {
   default     = true
 }
 
+variable "requester_pays_enabled" {
+  description = "Boolean whether to enable Requester Pays option on the Athena workgroup."
+  type        = bool
+  default     = false
+}
+
 variable "workgroup_encryption_option" {
   description = "Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (SSE_S3), server-side encryption with KMS-managed keys (SSE_KMS), or client-side encryption with KMS-managed keys (CSE_KMS) is used."
   type        = string
